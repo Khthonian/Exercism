@@ -1,0 +1,4 @@
+/home/khthonian/Repositories/Exercism/cpp/log-levels/CMakeFiles/log-levels.dir
+/home/khthonian/Repositories/Exercism/cpp/log-levels/CMakeFiles/test_log-levels.dir
+/home/khthonian/Repositories/Exercism/cpp/log-levels/CMakeFiles/edit_cache.dir
+/home/khthonian/Repositories/Exercism/cpp/log-levels/CMakeFiles/rebuild_cache.dir
