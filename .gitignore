@@ -1,2 +1,3 @@
 # Ignore phpunit
 php/phpunit
+php/.phpunit.result.cache
