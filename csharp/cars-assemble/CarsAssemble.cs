@@ -4,16 +4,23 @@ static class AssemblyLine
 {
     public static double SuccessRate(int speed)
     {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.SuccessRate() method");
+        return speed switch
+        {
+            0 => 0.00,
+            <= 4 => 1.00,
+            <= 8 => 0.90,
+            9 => 0.80,
+            _ => 0.77
+        };
     }
     
     public static double ProductionRatePerHour(int speed)
     {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.ProductionRatePerHour() method");
+        return 221 * SuccessRate(speed) * speed;
     }
 
     public static int WorkingItemsPerMinute(int speed)
     {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.WorkingItemsPerMinute() method");
+        return (int)(ProductionRatePerHour(speed) / 60);
     }
 }
