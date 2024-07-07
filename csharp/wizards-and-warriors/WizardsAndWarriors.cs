@@ -1,50 +1,46 @@
 using System;
 
-abstract class Character
+abstract class Character(string characterType)
 {
-    protected Character(string characterType)
-    {
-        throw new NotImplementedException("Please implement the Character() constructor");
-    }
+    private readonly string _characterType = characterType;
 
     public abstract int DamagePoints(Character target);
 
     public virtual bool Vulnerable()
     {
-        throw new NotImplementedException("Please implement the Character.Vulnerable() method");
+        return false;
     }
 
     public override string ToString()
     {
-        throw new NotImplementedException("Please implement the Character.ToString() method");
+        return $"Character is a {_characterType}";
     }
 }
 
-class Warrior : Character
+internal class Warrior() : Character("Warrior")
 {
-    public Warrior() : base("TODO")
-    {
-    }
-
     public override int DamagePoints(Character target)
     {
-        throw new NotImplementedException("Please implement the Warrior.DamagePoints() method");
+        return target.Vulnerable() ? 10 : 6;
     }
 }
 
-class Wizard : Character
+internal class Wizard() : Character("Wizard")
 {
-    public Wizard() : base("TODO")
-    {
-    }
+    private bool _spellPrepared = false;
 
     public override int DamagePoints(Character target)
     {
-        throw new NotImplementedException("Please implement the Wizard.DamagePoints() method");
+        return _spellPrepared ? 12 : 3;
     }
 
     public void PrepareSpell()
     {
-        throw new NotImplementedException("Please implement the Wizard.PrepareSpell() method");
+        _spellPrepared = true;
+    }
+
+    public override bool Vulnerable()
+    {
+        return !_spellPrepared;
     }
 }
