@@ -2,23 +2,23 @@
 
 class PizzaPi
 {
-    public function calculateDoughRequirement()
+    public function calculateDoughRequirement($pizzas, $servings)
     {
-        throw new \BadFunctionCallException("Implement the function");
+        return $pizzas * (($servings * 20) + 200);
     }
 
-    public function calculateSauceRequirement()
+    public function calculateSauceRequirement($pizzas, $canVolume)
     {
-        throw new \BadFunctionCallException("Implement the function");
+        return $pizzas * 125 / $canVolume;
     }
 
-    public function calculateCheeseCubeCoverage()
+    public function calculateCheeseCubeCoverage($cheeseCube, $cheeseLayer, $diameter)
     {
-        throw new \BadFunctionCallException("Implement the function");
+        return floor(($cheeseCube ** 3) / ($cheeseLayer * pi() * $diameter));
     }
 
-    public function calculateLeftOverSlices()
+    public function calculateLeftOverSlices($pizzas, $friends)
     {
-        throw new \BadFunctionCallException("Implement the function");
+        return ($pizzas * 8) % $friends;
     }
 }
