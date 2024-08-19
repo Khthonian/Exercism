@@ -4,21 +4,39 @@ class HighSchoolSweetheart
 {
     public function firstLetter(string $name): string
     {
-        throw new \BadFunctionCallException("Implement the function");
+        return substr(trim($name), 0, 1);
     }
 
     public function initial(string $name): string
     {
-        throw new \BadFunctionCallException("Implement the function");
+        $initial = ucwords($this->firstLetter($name));
+        return "$initial.";
     }
 
     public function initials(string $name): string
     {
-        throw new \BadFunctionCallException("Implement the function");
+        return implode(' ', array_map([$this, 'initial'], explode(' ', $name)));
     }
 
     public function pair(string $sweetheart_a, string $sweetheart_b): string
     {
-        throw new \BadFunctionCallException("Implement the function");
+        $firstInitials = $this->initials($sweetheart_a);
+        $secondInitials = $this->initials($sweetheart_b);
+        return <<<HEART
+                 ******       ******
+               **      **   **      **
+             **         ** **         **
+            **            *            **
+            **                         **
+            **     $firstInitials  +  $secondInitials     **
+             **                       **
+               **                   **
+                 **               **
+                   **           **
+                     **       **
+                       **   **
+                         ***
+                          *
+            HEART;
     }
 }
